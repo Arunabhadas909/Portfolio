@@ -11,7 +11,7 @@ import workerSrc from 'pdfjs-dist/build/pdf.worker.min.mjs';
 import { ViewChild } from '@angular/core';
 import { Service1Service } from '../service1.service';
 import { AllDetails, webAllDetails } from '../interface';
-import { det } from 'mathjs';
+// import { det } from 'mathjs';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-user',

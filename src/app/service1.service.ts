@@ -60,10 +60,10 @@ export class Service1Service {
 
   
 
-  backendUrl = "http://localhost:3000/admin";
-  backendUserUrl = "http://localhost:3000/user" ;
+  backendUrl = "https://portfolio-editor-backend-1.onrender.com/admin";
+  backendUserUrl = "https://portfolio-editor-backend-1.onrender.com/user" ;
 
-  backendStoreUrl="http://localhost:3000/dataSelected";
+  backendStoreUrl="https://portfolio-editor-backend-1.onrender.com/dataSelected";
 
   readLink:ReadLink =
   {
@@ -95,7 +95,7 @@ export class Service1Service {
 getProject(url:string): Observable<ReadLink>
   {
 
-    return this.http.get<any>(`http://localhost:3000/admin/project?url=${url}`).pipe(
+    return this.http.get<any>(`https://portfolio-editor-backend-1.onrender.com/admin/project?url=${url}`).pipe(
     map(project => ({
       title: project.title,
       description: project.description,
