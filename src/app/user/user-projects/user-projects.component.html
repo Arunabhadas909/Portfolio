@@ -1,0 +1,40 @@
+  <div class="container-fluid">
+
+  <div class="container-fluid text-center m-3 p-5">
+      <h2>Projects</h2> 
+  </div>
+
+<div class="container-fluid" >
+  <div class=" row row-cols-auto m-2">
+      <div *ngFor="let project of projectsFound; let i = index" class="col-12 col-sm-6 col-md-4 col-lg-3 m-2">
+
+          <div  class="card  " data-aos="fade-down">
+
+              <img [src]="project.img" alt="LinkImage" class="card-img-top profile-image" />
+
+              <div class="card-body bg-secondary">
+                <div class="text-start">
+                        <p class="card-title text-primary-emphasis">{{ project.title }}</p>
+                </div>
+
+                <div class="text-start">
+                    <p class="card-text card-title text-primary-emphasis">{{ project.description }}</p>
+
+                </div>
+                  <!-- <p class="card-title text-primary-emphasis">{{ project.title }}</p> -->
+                  <!-- <p class="card-text card-title text-primary-emphasis">{{ project.description }}</p> -->
+
+                  <div class="text-center">
+                        <a [href]="project.url" target="_blank" class="btn btn-primary">Visit</a>
+                  </div>
+                  <!-- <a [href]="project.url" target="_blank" class="btn btn-primary">Visit</a> -->
+                  <!-- <button (click)="deleteFile(i)" class="btn btn-danger btn-sm ms-2">Delete</button> -->
+              </div>
+
+          </div>
+
+      </div>
+
+</div>
+</div>
+</div>

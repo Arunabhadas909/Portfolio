@@ -1,0 +1,41 @@
+    
+    
+    <div class="container-fluid rounded ">
+
+    <div class=" container-fluid text-center m-3 p-5">
+            <h2>Skills and Expertise</h2>
+    </div>
+    
+    
+    <div class="container-fluid" >
+        <div class=" row row-cols-auto m-2">
+
+            <div *ngFor="let skill of skillsFound; let i = index " class="col m-2"  >
+                
+                <div class="card text-center bg-transparent border rounded" data-aos="fade-up">
+                    <!-- <div class="text-center m-2">
+                        <p class="text-secondary font " >{{skill.name | titlecase}}</p>
+                    </div> -->
+                    <div class="text-center m-2 max-height">
+                        <img [src]="skill.img" alt="Skill Image" class="card-body skill-image rounded-5 " >
+                    </div>
+
+                    <div class="text-center m-2">
+                        <p class="text-secondary font " >{{skill.name | titlecase}}</p>
+                    </div>
+
+                    <!-- <div class="text-center m-2"> 
+                        <button (click)="deleteSkill(i)" class="btn btn-danger btn-sm ms-2">Delete</button>
+                    </div> -->
+                    
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>

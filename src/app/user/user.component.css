@@ -60,11 +60,11 @@
 {
     cursor: pointer;
 }
-.menu:hover
+/* .menu:hover
 {
     color: gray;
 
-}
+} */
 
 .position
 {
@@ -112,10 +112,34 @@
 }
 .menu-items:hover 
 {
+    /* .title :hover
+{ */
+
+      transform: scale(1.02);
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+
+/* } */
     background-color: gray;
 }
 
 .remove-text-underline
 {
     text-decoration: none;
+}
+
+
+.resume:hover {
+  transform: scale(1.02);
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+.menu-icon-font:hover
+{
+      transform: scale(1.02);
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+  color: black;
+  
+  background-color: grey;
 }

@@ -1,0 +1,149 @@
+
+<div class=" container-fluid d-grid gap-3 text-center border">
+
+<!-- <header> -->
+  <div #home id="home" class=" container-fluid fixed-top fs-2 fst-italic row m-auto mb-5 bg-secondary">
+
+  <div class="col-4 text-start menu p-2"  data-bs-toggle="offcanvas" data-bs-target="#sideBar">
+
+    <i class="bi bi-list menu-icon-font rounded-circle"></i>
+
+  </div>
+
+ <div class="offcanvas offcanvas-start" tabindex="-1" id="sideBar" aria-labelledby="offcanvasExampleLabel" >
+  <div class="offcanvas-header">
+    <h4 class="offcanvas-title text-dark " id="offcanvasExampleLabel">Menu </h4>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body border rounded-5">
+
+
+   <div class="text-dark text-start container  border  menu-items p-2 ">
+
+      <a  [routerLink]="['/userComp']"  fragment="introduction" class="text-decoration-none text-reset"><p>Home</p></a> 
+   <!-- <a  href="adminComp#home" class="text-decoration-none text-reset"><p>Home</p></a>        -->
+    </div>
+    <div class="text-dark text-start border menu-items p-2 ">
+
+      <a [routerLink]="['/userComp']"  fragment="skills" class="text-decoration-none text-reset"><p>Skills & Expertise</p></a> 
+      
+    </div>
+    
+    <div class="text-dark text-start border menu-items p-2 ">
+
+      <a [routerLink]="['/userComp']"  fragment="projects"class="text-decoration-none text-reset"><p class="">Projects</p></a> 
+      
+    </div>
+
+    <div class="text-dark text-start border menu-items p-2 ">
+
+      <a [routerLink]="['/userComp']"  fragment="coverletter" class="text-decoration-none text-reset"><p>Cover Letter</p></a> 
+      
+    </div>
+
+    <div class="text-dark text-start border menu-items p-2">
+
+      <!-- <button class=" btn btn-secondary rounded-5 remove-text-decoration"> -->
+         <a [routerLink]="['/userComp']" fragment="contactForm" class="text-decoration-none text-reset"><p>Contact Me</p></a> 
+      <!-- </button>  -->
+      
+    </div>
+    <!-- <div class="dropdown mt-3">
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+        Dropdown button
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Action</a></li>
+        <li><a class="dropdown-item" href="#">Another action</a></li>
+        <li><a class="dropdown-item" href="#">Something else here</a></li>
+      </ul>
+    </div> -->
+  </div>
+</div>
+
+
+<div class="col-4 text-center  p-2">
+<h1 class="" >
+      Hi, Welcome to Arunabha's Portfolio
+    </h1>
+<!-- <a href="" *ngIf="goToHome"></a> -->
+</div>
+   
+ 
+ 
+  <div class=" col-4 text-end">
+    
+    <div class=" row  ">
+      <div class="col text-end align-middle p-2">
+       <button *ngIf="isSaved" class=" rounded-5 btn btn-primary text-center text-light align-middle previewButtonFont m-2" (click)="sendToDatabase()" >Save </button>
+    </div>
+    <div class="col text-end align-middle p-2" data-aos="fade-down">
+       <button class="rounded-5 text-center align-middle downloadButtonFont btn btn-light text-dark m-2 resume"> Resume<a href="../assets/Arunabha_Das_Full_Stack_Resume_30_05_2025.pdf" target="_blank" class="text-light downloadButton text-dark"> <i class="bi bi-download " > </i></a> </button>
+    </div>
+
+    
+    </div>
+      <!-- <button class="bg-light rounded-5 text-center align-middle downloadButtonFont"> Resume<a href="../assets/Arunabha_Das_Full_Stack_Resume_30_05_2025.pdf" target="_blank" class="text-light downloadButton text-dark"> <i class="bi bi-download " > </i></a> </button> -->
+  </div>
+
+  </div>
+
+
+  
+<div #main class="main-content ">
+  <div class=" mt-5 pt-5">
+  <div id="introduction" class="bg-dark mt-5 pt-5">
+    <app-user-intro></app-user-intro>
+  </div>
+<!-- <app-introduction></app-introduction> -->
+
+<div id="skills" class="bg-dark" >
+<app-user-skills></app-user-skills>
+</div>
+<!-- <app-skills></app-skills> -->
+
+<div id="projects" class="bg-dark" >
+<app-user-projects></app-user-projects>
+</div>
+<!-- <app-projects-section></app-projects-section> -->
+<div id="coverletter" class="bg-dark" >
+    <app-user-coverletter></app-user-coverletter>
+</div>
+<!-- <app-cover-letter></app-cover-letter> -->
+
+<div id="contactForm" class="bg-dark">
+  <app-user-footer></app-user-footer>
+</div>
+<!-- <app-footer-section></app-footer-section> -->
+
+</div>
+
+</div>
+
+ 
+
+<!-- <router-outlet></router-outlet> -->
+
+<footer>
+
+  <div class="bg-secondary align-middle">
+
+    Let's Connect on:
+  <div class="text-center">
+    <div class=" gx-2 row-cols-auto text-center m-2">
+      <a href="https://www.linkedin.com/in/arunabha10/" target="_blank" ><i class="bi bi-linkedin col font-net  p-2" ></i></a>
+      <a href="https://github.com/Arunabhadas909" target="_blank" ><i class="bi bi-github col  font-net p-2" ></i></a>
+      <a href="" target="_blank" ><i class="bi bi-instagram col font-net p-2 "></i></a>
+      <a href="https://x.com/Arunabh65448201" target="_blank"><i class="bi bi-twitter-x col font-net p-2" ></i></a>     
+    </div>
+  </div>
+  
+  <p>Copyright <i class="bi bi-c-circle"></i>2025 Arunabha Das | All Rights Reserved</p>
+</div>
+</footer>
+
+
+
+</div>
+  
+

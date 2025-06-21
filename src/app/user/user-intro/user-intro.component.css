@@ -1,0 +1,16 @@
+.text-view
+{
+
+    white-space: pre-wrap;
+}
+
+.profile-image
+{
+    max-width:200px;
+
+}
+
+.about-font
+{
+    font-size: 25px;
+}

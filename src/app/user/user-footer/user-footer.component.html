@@ -1,0 +1,71 @@
+<div class="container-fluid rounded">
+
+    <div class="text-center container">
+
+        <h2> Contact Me</h2>
+
+    </div>
+
+
+        <form action="" >
+            <div class="border rounded container-fluid"  >
+                <div class="mb-3">
+                    <div class="text-start mt-2">
+                        <label for="name" class="form-label "> Name: </label>
+                    </div>
+                    
+                    <input id="name" type="text" placeholder="Arunabha Das" name="name" class="form-control bg-transparent text-light" [(ngModel)]="name" required>
+                </div>
+
+                <div class="mb-3">
+                    <div class="text-start">
+                    <label for="email" class="form-label">Email: </label>
+                    </div>
+                    <input id="email" type="email" placeholder="example@gmail.com" name="email" class="form-control bg-transparent text-light" [(ngModel)]="email" required>                    
+                </div>
+
+                <div class="mb-3">
+
+                    <div class="text-start">
+                        <label for="message" class="form-label">Message: </label>
+                    </div>
+                    
+                    <textarea name="message" id="message" class="form-control bg-transparent text-light" rows="7" placeholder="Write a message to Arunabha" [(ngModel)]="message"></textarea>
+
+                </div>
+
+            </div>
+
+
+          
+                <div class="text-start">
+                    <button class="btn btn-secondary p-2 m-2  submitButton" type="submit" (click)="saveDetails()" data-bs-toggle="modal" data-bs-target="#userModal"> Submit </button>
+
+                </div>
+            
+        </form>
+
+
+        <div *ngIf="dataSent" id="userModal"  class="modal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div  class="modal-body text-success responseFont row align-center">
+                        <!-- {{response.msg}} -->
+
+                        <div>
+                                <i class="bi bi-check-circle col done-icon"></i>
+                        </div>
+                         <div>
+                            <p class=" col"> {{responseFromBackend}}</p> 
+                         </div>
+                         
+                    </div>
+                    <!-- <div class="modal-footer">
+                    </div> -->
+                </div>          
+            </div>
+        </div>
+</div>

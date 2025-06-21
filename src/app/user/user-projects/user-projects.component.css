@@ -1,0 +1,15 @@
+.profile-image
+{
+    max-width: 250px;
+}
+
+.card-edit
+{
+    word-break: normal;
+}
+
+.card:hover {
+  transform: scale(1.02);
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
