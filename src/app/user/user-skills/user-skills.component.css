@@ -1,0 +1,22 @@
+.skill-box
+{
+    border-style: dashed;
+}
+
+.font
+{
+    font-size: 25px;
+    color: black;
+    cursor: pointer;
+    max-width: 300px;
+}
+.skill-image
+{
+    max-width: 200px;
+    /* max-height: fit-content; */
+}
+
+.max-height
+{
+    max-height: 25%;
+}
