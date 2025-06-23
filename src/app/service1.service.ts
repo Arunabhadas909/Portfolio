@@ -216,7 +216,7 @@ getDataFromDatabase(urlEndpoint:string):Observable<AllDetails>
   return this.http.get <any>(`${this.backendStoreUrl}${urlEndpoint}`).pipe(
     map( (data) => ({
 
-         username:data.name,
+         username:data.username,
         designation:data.designation,
         previewUrl: data.previewUrl,
         mimeType: data.mimeType,
