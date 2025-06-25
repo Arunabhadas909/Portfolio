@@ -46,7 +46,7 @@ export class UserSkillsComponent implements OnInit{
       ngOnInit()
   {
 
-    this.service.data$.subscribe( (updatedData) =>
+    this.service.getDataWithFallback().subscribe( (updatedData) =>
       {
         this.data = updatedData;
          this.skills = updatedData.skills ?? '';
@@ -59,7 +59,7 @@ export class UserSkillsComponent implements OnInit{
 
       });
 
-      this.getSkills();
+      // this.getSkills();
     
     }
 }

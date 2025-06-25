@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable,of } from 'rxjs';
+import { BehaviorSubject, EMPTY, Observable,of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { map, catchError } from 'rxjs/operators';
+import { map, catchError, tap, switchMap } from 'rxjs/operators';
 
 import { AllDetails, projectSchema, ReadLink, skillsSchema, userData, webAllDetails } from './interface';
 @Injectable({
@@ -22,18 +22,7 @@ export class Service1Service {
       }
     }
    }
-  private dataSubject = new BehaviorSubject<webAllDetails>({
-    username:"",
-    designation:"",
-    previewUrl: null,
-    textEntered: '',
-    skills:[{
-      name:"",
-      img:"",
-    }],
-    projects: [],
-    coverLettertextEntered: ''
-  });
+  private dataSubject = new BehaviorSubject<AllDetails|null>(null);
 
 
 
@@ -175,23 +164,23 @@ postUserData(urlEndpoint:string, data:userData):Observable<any>
 
 data$ = this.dataSubject.asObservable()
 
-passDataToUserComp( patch: Partial<webAllDetails>){
+// passDataToLocalStorage( patch: Partial<webAllDetails>){
 
 
-const current = this.dataSubject.value;
+// const current = this.dataSubject.value;
 
-const updated = {...current, ...patch}
+// const updated = {...current, ...patch}
 
-this.dataSubject.next(updated);
+// this.dataSubject.next(updated);
 
-console.log(this.dataSubject);
-
-
-localStorage.setItem('webAllDetails', JSON.stringify(updated));
+// console.log(this.dataSubject);
 
 
+// localStorage.setItem('webAllDetails', JSON.stringify(updated));
 
-}
+
+
+// }
 
 
 
@@ -208,6 +197,19 @@ console.log(" sending data")
  return this.http.post(url, data);
 
 }
+
+
+
+showDataWhenEmpty()
+{
+
+}
+
+
+
+
+
+
 
 
 getDataFromDatabase(urlEndpoint:string):Observable<AllDetails>
@@ -300,5 +302,82 @@ getDataFromDatabase(urlEndpoint:string):Observable<AllDetails>
     
 //   }
 // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // private dataSubject = new BehaviorSubject<AllDetails | null>(null);
+  // data$ = this.dataSubject.asObservable();
+
+  // constructor(private http: HttpClient) {}
+
+  getDataWithFallback(): Observable<AllDetails> {
+    const local = localStorage.getItem('cachedData');
+
+    if (local) {
+      const localData = JSON.parse(local);
+
+      // 🔄 Fetch fresh data in background
+      this.fetchFreshDataInBackground();
+
+      this.dataSubject.next(localData);
+      return of(localData);
+    } else {
+      // First time visitor: load fallback static file
+      return this.http.get<AllDetails>('/assets/data/fallback.json').pipe(
+        tap(staticData => {
+          this.dataSubject.next(staticData);
+        }),
+        switchMap(() => {
+          return this.http.get<AllDetails>(`${this.backendStoreUrl}/data`).pipe(
+            tap(fresh => {
+              localStorage.setItem('cachedData', JSON.stringify(fresh));
+              this.dataSubject.next(fresh);
+            }),
+            catchError(() => {
+              console.warn('API still cold or failed, using fallback only.');
+              return EMPTY;
+            })
+          );
+        })
+      );
+    }
+  }
+
+  private fetchFreshDataInBackground() {
+    this.http.get<AllDetails>(`${this.backendStoreUrl}/data`).pipe(
+      tap(fresh => {
+        localStorage.setItem('cachedData', JSON.stringify(fresh));
+        this.dataSubject.next(fresh);
+      }),
+      catchError(() => {
+        console.warn('Failed to refresh in background.');
+        return EMPTY;
+      })
+    ).subscribe();
+  }
+
+
+
+
+
+
+
+
+
+
 
 }

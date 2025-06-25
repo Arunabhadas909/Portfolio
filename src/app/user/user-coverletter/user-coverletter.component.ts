@@ -46,7 +46,7 @@ gotcoverlettertextEntered :string ='';
          ngOnInit()
   {
 
-    this.service.data$.subscribe( (updatedData) =>
+    this.service.getDataWithFallback().subscribe( (updatedData) =>
       {
         this.data = updatedData;
          this.coverlettertextEntered = updatedData.coverLettertextEntered ?? '';
@@ -59,6 +59,6 @@ gotcoverlettertextEntered :string ='';
 
       });
 
-      this.getCoverLetterText();
+      // this.getCoverLetterText();
     }
 }

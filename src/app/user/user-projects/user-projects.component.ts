@@ -52,7 +52,7 @@ data: webAllDetails  | null = null;
         ngOnInit()
   {
 
-    this.service.data$.subscribe( (updatedData) =>
+    this.service.getDataWithFallback().subscribe( (updatedData) =>
       {
         this.data = updatedData;
          this.projects = updatedData.projects ?? '';
@@ -62,7 +62,7 @@ data: webAllDetails  | null = null;
             console.log('projects: '  , this.projects);
 
     // console.log('textEntered :' , this.textEntered);
-        this.getProjects();
+        // this.getProjects();
       });
     }
 }

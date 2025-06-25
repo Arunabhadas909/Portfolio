@@ -64,7 +64,7 @@ getIntro()
   ngOnInit()
   {
 
-    this.service.data$.subscribe( (updatedData) =>
+    this.service.getDataWithFallback().subscribe( (updatedData) =>
       {
         this.data = updatedData;
          this.textEntered = updatedData.textEntered ?? '';
@@ -75,7 +75,7 @@ getIntro()
 
     // console.log('textEntered :' , this.textEntered);
 
-    this.getIntro();
+    // this.getIntro();
 
       })
     // console.log(this.data);
