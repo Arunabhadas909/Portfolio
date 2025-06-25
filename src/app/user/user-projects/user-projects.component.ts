@@ -25,7 +25,7 @@ data: webAllDetails  | null = null;
   getProjects()
 {
 
-  this.service.getDataFromDatabase('/data').subscribe( async (info) =>
+  this.service.getDataWithFallback().subscribe( async (info) =>
     {
       const data = await info;
       // const base64 : string| ArrayBuffer | null = await info.previewUrl;
@@ -52,17 +52,20 @@ data: webAllDetails  | null = null;
         ngOnInit()
   {
 
-    this.service.getDataWithFallback().subscribe( (updatedData) =>
-      {
-        this.data = updatedData;
-         this.projects = updatedData.projects ?? '';
+    // this.service.getDataWithFallback().subscribe( (updatedData) =>
+    //   {
+    //     this.data = updatedData;
+    //      this.projects = updatedData.projects ?? '';
 
-        //  this.previewUrl = updatedData.previewUrl;
-            console.log(this.data);
-            console.log('projects: '  , this.projects);
+    //     //  this.previewUrl = updatedData.previewUrl;
+    //         console.log(this.data);
+    //         console.log('projects: '  , this.projects);
 
-    // console.log('textEntered :' , this.textEntered);
-        // this.getProjects();
-      });
+    // // console.log('textEntered :' , this.textEntered);
+        this.getProjects();
+    //   });
+
+
+
     }
 }

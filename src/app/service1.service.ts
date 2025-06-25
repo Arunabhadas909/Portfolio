@@ -322,10 +322,6 @@ getDataFromDatabase(urlEndpoint:string):Observable<AllDetails>
 
 
 
-  // private dataSubject = new BehaviorSubject<AllDetails | null>(null);
-  // data$ = this.dataSubject.asObservable();
-
-  // constructor(private http: HttpClient) {}
 
   getDataWithFallback(): Observable<AllDetails> {
     const local = localStorage.getItem('cachedData');
@@ -333,13 +329,13 @@ getDataFromDatabase(urlEndpoint:string):Observable<AllDetails>
     if (local) {
       const localData = JSON.parse(local);
 
-      // 🔄 Fetch fresh data in background
+     
       this.fetchFreshDataInBackground();
 
       this.dataSubject.next(localData);
       return of(localData);
     } else {
-      // First time visitor: load fallback static file
+ 
       return this.http.get<AllDetails>('../assets/data/fallback.json').pipe(
         tap(staticData => {
           this.dataSubject.next(staticData);

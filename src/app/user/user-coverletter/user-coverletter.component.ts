@@ -22,7 +22,7 @@ gotcoverlettertextEntered :string ='';
   getCoverLetterText()
 {
 
-  this.service.getDataFromDatabase('/data').subscribe( async (info) =>
+  this.service.getDataWithFallback().subscribe( async (info) =>
     {
       const data = await info;
       // const base64 : string| ArrayBuffer | null = await info.previewUrl;
@@ -46,19 +46,19 @@ gotcoverlettertextEntered :string ='';
          ngOnInit()
   {
 
-    this.service.getDataWithFallback().subscribe( (updatedData) =>
-      {
-        this.data = updatedData;
-         this.coverlettertextEntered = updatedData.coverLettertextEntered ?? '';
+    // this.service.getDataWithFallback().subscribe( (updatedData) =>
+    //   {
+    //     this.data = updatedData;
+    //      this.coverlettertextEntered = updatedData.coverLettertextEntered ?? '';
 
-        //  this.previewUrl = updatedData.previewUrl;
-            console.log(this.data);
-            console.log('Cover Letter text: '  , this.coverlettertextEntered);
+    //     //  this.previewUrl = updatedData.previewUrl;
+    //         console.log(this.data);
+    //         console.log('Cover Letter text: '  , this.coverlettertextEntered);
 
-    // console.log('textEntered :' , this.textEntered);
+    // // console.log('textEntered :' , this.textEntered);
 
-      });
+    //   });
 
-      // this.getCoverLetterText();
+      this.getCoverLetterText();
     }
 }
