@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, EMPTY, Observable,of } from 'rxjs';
+import { BehaviorSubject, EMPTY, from, Observable,of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map, catchError, tap, switchMap } from 'rxjs/operators';
 
 import { AllDetails, projectSchema, ReadLink, skillsSchema, userData, webAllDetails } from './interface';
+
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -337,7 +340,7 @@ getDataFromDatabase(urlEndpoint:string):Observable<AllDetails>
       return of(localData);
     } else {
       // First time visitor: load fallback static file
-      return this.http.get<AllDetails>('/assets/data/fallback.json').pipe(
+      return this.http.get<AllDetails>('../assets/data/fallback.json').pipe(
         tap(staticData => {
           this.dataSubject.next(staticData);
         }),
