@@ -30,7 +30,7 @@ export class UserIntroComponent implements OnInit{
 getIntro()
 {
 
-  this.service.getDataFromDatabase('/data').subscribe( async (info) =>
+  this.service.getDataWithFallback().subscribe( async (info) =>
     {
       const data = await info;
       const base64 : string| ArrayBuffer | null = await info.previewUrl;
@@ -64,20 +64,20 @@ getIntro()
   ngOnInit()
   {
 
-    this.service.getDataWithFallback().subscribe( (updatedData) =>
-      {
-        this.data = updatedData;
-         this.textEntered = updatedData.textEntered ?? '';
+    // this.service.getDataWithFallback().subscribe( (updatedData) =>
+    //   {
+    //     this.data = updatedData;
+    //      this.textEntered = updatedData.textEntered ?? '';
 
-         this.previewUrl = updatedData.previewUrl;
-            console.log(this.data);
-            console.log('textEntered :' , this.textEntered);
+    //      this.previewUrl = updatedData.previewUrl;
+    //         console.log(this.data);
+    //         console.log('textEntered :' , this.textEntered);
 
-    // console.log('textEntered :' , this.textEntered);
+    // // console.log('textEntered :' , this.textEntered);
 
-    // this.getIntro();
+    this.getIntro();
 
-      })
+    //   })
     // console.log(this.data);
 
     // console.log('textEntered :' , this.textEntered);
