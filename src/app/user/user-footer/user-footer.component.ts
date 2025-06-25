@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { userData } from 'src/app/interface';
+import { emailData, userData } from 'src/app/interface';
 import { Service1Service } from 'src/app/service1.service';
 
 @Component({
@@ -67,6 +67,30 @@ export class UserFooterComponent {
    
   
      console.log('msg:', this.responseFromBackend);
+
+
+     const emailData: emailData = 
+   {
+    name: this.name,
+    email:this.email,
+    message:this.message,
+   };
+
+
+
+
+     this.service.sentMessageFromClient('/contact', emailData ).subscribe ((response)=>
+      {
+
+        console.log("Email sent!");
+      },
+
+      (err) => console.error('Error sending email:', err)
+    )
+     {
+
+
+     }
     }
 
 }

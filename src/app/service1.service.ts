@@ -3,7 +3,7 @@ import { BehaviorSubject, EMPTY, from, Observable,of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map, catchError, tap, switchMap } from 'rxjs/operators';
 
-import { AllDetails, projectSchema, ReadLink, skillsSchema, userData, webAllDetails } from './interface';
+import { AllDetails, emailData, projectSchema, ReadLink, skillsSchema, userData, webAllDetails } from './interface';
 
 
 
@@ -373,7 +373,22 @@ getDataFromDatabase(urlEndpoint:string):Observable<AllDetails>
 
 
 
+ sentMessageFromClient( urlEndpoint:string, data:emailData): Observable<any>
+ {
 
+
+  const url = `${this. backendStoreUrl}${urlEndpoint}`;
+  console.log(" sending email data")
+
+    return this.http.post(url, data);
+
+
+
+
+  
+
+
+ }
 
 
 

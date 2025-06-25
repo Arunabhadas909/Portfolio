@@ -58,3 +58,12 @@ export interface AllDetails
     coverLettertextEntered: string,
 
 }
+
+export interface emailData
+{
+
+
+    name: string,
+    email:string,
+    message : string,    
+}
