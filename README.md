@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="https://i.imgur.com/dpQFG9B.png" alt="Portfolio Banner" width="100%">
+  <img src="https://drive.google.com/file/d/1-GZdepqutDGVVG4FyHpeKzzm9KxV2deO/view?usp=drivesdk" alt="Portfolio Banner" width="100%">
 </p>
 
 <h1 align="center">🌐 Arunabha Das – Personal Portfolio</h1>
