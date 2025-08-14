@@ -45,6 +45,7 @@ Designed for recruiters, collaborators, and anyone curious about my work.
 ---
 
 ## 📂 Folder Structure
+<div>
 Portfolio/
 │── src/
 │ ├── app/
@@ -55,6 +56,19 @@ Portfolio/
 │── package.json
 │── README.md
 
+  
+</div>
+<!--
+Portfolio/
+│── src/
+│ ├── app/
+│ ├── assets/
+│ ├── components/
+│ ├── styles/
+│── angular.json
+│── package.json
+│── README.md
+-->
 ---
 <!--
 ## 📷 Preview
