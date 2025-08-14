@@ -1,4 +1,4 @@
-<!-- Banner -->
+
 <p align="center">
   <img src="https://i.imgur.com/dpQFG9B.png" alt="Portfolio Banner" width="100%">
 </p>
